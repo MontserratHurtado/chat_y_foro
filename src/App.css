@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  background-color: #f9f3f3;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Asegura que ocupe el espacio restante */
+}
+
+.header {
+  background-color: #ff69b4; /* Rosa vibrante */
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-shrink: 0; /* Evita que la barra se encoja */
+ 
+}
+/*
+#imagen{
+  background-image: url('imagenes/mujer.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: #FFFFFF;
+  }
+  */
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info h2 {
+  margin: 0;
+}
+
+.online-status {
+  font-size: 0.9em;
+}
+
+.chat-container {
+  flex: 1; /* Permite que el contenedor del chat ocupe el espacio restante */
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 70px; /* Espacio para evitar superposición con los menús */
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+  word-wrap: break-word; /* Permite que el texto largo se ajuste a la línea */
+}
+
+.message.me {
+  background-color: #f98eb9; /* Rosa claro */
+  align-self: flex-end;
+}
+
+.message.other {
+  background-color: #fa6db1; /* Rosa muy claro */
+  align-self: flex-start; /* Cambiado para que los mensajes de otros usuarios vayan a la izquierda */
+}
+
+.message.system {
+  background-color: #e2b3ca; /* Rosa muy claro */
+  align-self: center;
+}
+
+.message img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.message-form {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ff69b4; /* Rosa vibrante */
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #ff69b4; /* Rosa vibrante */
+  color: white;
+  border-radius: 25px; /* Esquinas redondeadas */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.send-button:hover {
+  background-color: #ff85b3; /* Rosa medio */
+  transform: scale(1.05);
+}
+
+.attach-button {
+  margin-right: 10px;
+  cursor: pointer;
+  color: #ff69b4; /* Rosa vibrante */
+  font-size: 20px; /* Tamaño de icono más grande */
+  padding: 10px; /* Añadido padding para hacerlo más grande */
+  background-color: #ffb3d1; /* Rosa claro para el botón */
+  border-radius: 25px; /* Esquinas redondeadas */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.attach-button:hover {
+  background-color: #ff85b3; /* Rosa medio */
+  transform: scale(1.05); /* Efecto de escalado al pasar el mouse */
+}
+
+.options-menu {
+  position: absolute;
+  bottom: 70px; /* Aumentar el espacio para evitar superposición */
+  left: 10px;
+  background-color: white;
+  border: 1px solid #ff69b4; /* Rosa vibrante */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px;
+  z-index: 10
+  ;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button {
+  cursor: pointer;
+  color: #ff69b4; /* Rosa vibrante */
+  padding: 10px; /* Añadido padding para hacerlo más grande */
+  background-color: #ffb3d1; /* Rosa claro para el botón */
+  border-radius: 25px; /* Esquinas redondeadas */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.menu-button:hover {
+  background-color: #ff85b3; /* Rosa medio */
+  transform: scale(1.05); /* Efecto de escalado al pasar el mouse */
+}
+
+.menu {
+  position: absolute; /* Mantiene el menú flotante */
+  top: calc(100% + 10px); /* Coloca el menú justo debajo del botón con un margen */
+  right: 0; /* Alinea el menú a la derecha */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #ff69b4; /* Rosa vibrante */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  z-index: 200; /* Asegúrate de que sea un valor alto */
+  padding: 10px; /* Espaciado interno */
+}
+
+.menu button {
+  display: block; /* Cada botón ocupa toda la línea */
+  width: 100%; /* Asegura que los botones ocupen todo el ancho del menú */
+  padding: 10px;
+  border: none;
+  background: #ffb3d1; /* Rosa claro para los botones de menú */
+  color: #ff69b4; /* Rosa vibrante para el texto */
+  cursor: pointer;
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-weight: bold; /* Texto más grueso */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.menu button:hover {
+  background-color: #ff85b3; /* Rosa medio */
+  transform: scale(1.05); /* Efecto de escalado al pasar el mouse */
+}
+
+.blocked-message {
+  background-color: rgb(161, 0, 142);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content; /* Ajusta el ancho al contenido */
+  margin: 10px auto; /* Centra el mensaje */
+}
+
+.chat-window {
+  height: 100%; /* Ocupa toda la altura */
+  width: 110%; /* Ocupa todo el ancho */
+  background-color: pink; /* Color de fondo en caso de que la imagen no cargue */
+}
